@@ -1,0 +1,296 @@
+/* Global Styles */
+:root {
+    --primary-color: #4CAF50;
+    --secondary-color: #2196F3;
+    --danger-color: #ff5722;
+    --background: #f8f9fa;
+    --text-color: #2c3e50;
+    --transition-timing: 0.3s;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+body {
+    background-color: var(--background);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    padding: 2rem;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes buttonHover {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-3px); }
+    100% { transform: translateY(0); }
+}
+
+/* Form Styles */
+.form-container {
+    perspective: 1000px;
+    animation: fadeIn 0.6s ease-out;
+}
+
+h3 {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+    color: var(--text-color);
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+h3::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: var(--primary-color);
+    margin: 10px auto;
+    border-radius: 2px;
+}
+
+form {
+    background: rgb(194, 180, 205);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transform-style: preserve-3d;
+    transition: transform var(--transition-timing) ease;
+}
+
+form:hover {
+    transform: translateZ(10px);
+}
+
+.input-group {
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+form input {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all var(--transition-timing) ease;
+    background: #f8f9fa;
+    color: #000; /* Make the text inside the input black */
+}
+
+form input:focus {
+    border-color: var(--primary-color);
+    background: #fff;
+    box-shadow: 0 4px 6px rgba(76, 175, 80, 0.1);
+}
+
+form label {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #95a5a6;
+    pointer-events: none;
+    transition: all var(--transition-timing) ease;
+}
+
+form input:focus + label,
+form input:not(:placeholder-shown) + label {
+    top: -10px;
+    left: 0.8rem;
+    font-size: 0.8rem;
+    color: var(--primary-color);
+    background: #fff;
+    padding: 0 0.3rem;
+}
+
+form button {
+    width: 100%;
+    padding: 1rem;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all var(--transition-timing) ease;
+    position: relative;
+    overflow: hidden;
+}
+
+form button:hover {
+    filter: brightness(110%);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3);
+}
+
+form button::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300px;
+    height: 300px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: all 0.5s ease;
+}
+
+form button:active::after {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0;
+}
+
+/* User List Styles */
+.user-list {
+    animation: fadeIn 0.6s ease-out 0.2s backwards;
+}
+
+ul {
+    display: grid;
+    gap: 1rem;
+    padding: 0;
+    margin-top: 2rem;
+}
+
+ul li {
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: all var(--transition-timing) ease;
+    transform-origin: top;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+ul li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.user-actions {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    width: 100%;
+}
+
+ul li button {
+    flex: 1;
+    padding: 0.8rem 1.2rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all var(--transition-timing) ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+ul li button:hover {
+    filter: brightness(110%);
+    transform: translateY(-2px);
+}
+
+.delete-btn {
+    background: var(--danger-color);
+}
+
+.edit-btn {
+    background: var(--secondary-color);
+}
+
+/* Loading Animation */
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.loading {
+    width: 24px;
+    height: 24px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+
+    h3 {
+        font-size: 2rem;
+    }
+
+    ul li {
+        flex-direction: column;
+    }
+
+    .user-actions {
+        flex-direction: column;
+    }
+
+    ul li button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    form {
+        padding: 1.5rem;
+    }
+
+    h3 {
+        font-size: 1.75rem;
+    }
+
+    ul li {
+        padding: 1rem;
+    }
+
+    form button {
+        padding: 0.8rem;
+    }
+}
+
+/* Error Message Animation */
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+}
+
+.error-message {
+    color: var(--danger-color);
+    animation: shake 0.4s ease;
+    font-size: 0.9rem;
+    margin-top: -0.5rem;
+    margin-bottom: 1rem;
+    display: block;
+}
