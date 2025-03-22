@@ -10,4 +10,4 @@ Technologies Used
 Frontend: React, Axios, HTML5, CSS3 (Responsive Design)
 Backend: Node.js, Express
 Database: MongoDB (with Mongoose)
-State Management: React hooks (useState, useEffect)
+State Management: React hooks (useState, useEffect.)
