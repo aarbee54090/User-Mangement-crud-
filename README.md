@@ -11,3 +11,8 @@ Frontend: React, Axios, HTML5, CSS3 (Responsive Design)
 Backend: Node.js, Express
 Database: MongoDB (with Mongoose)
 State Management: React hooks (useState, useEffect.)
+
+
+Step 1: Install All needed dependicies:(backend)
+npm init -y
+npm install express nodemon dotenv mongoose cors 
