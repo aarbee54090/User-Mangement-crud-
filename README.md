@@ -1,4 +1,9 @@
 A modern, responsive user management application built using React, Node.js, Express, and MongoDB. This app allows users to perform basic CRUD (Create, Read, Update, Delete) operations on user data, with a smooth and interactive UI/UX. The app is fully responsive, providing a vertical layout on mobile devices and a horizontal layout on desktop.
+It saves the user data on data:
+name:
+roll:
+contact:
+address:
 
 Features
 Responsive Design: Optimized for both desktop and mobile views.
